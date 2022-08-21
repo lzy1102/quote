@@ -1,4 +1,4 @@
-module quote
+module github.com/lzy1102/quote
 
 go 1.16
 
