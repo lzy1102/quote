@@ -27,7 +27,7 @@ func main() {
 			return socks5.Dial(network, addr)
 		},
 	}
-	xiuqiu, err := quote.NewQuoteFromXueqiu("300202.sz", "2021-02-01", "2022-02-18", quote.Daily, nil)
+	xiuqiu, err := quote.NewQuoteFromXueqiu("600898.ss", "2022-02-01", "2023-01-31", quote.Daily, nil)
 	if err != nil {
 		return
 	}
