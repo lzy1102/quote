@@ -1018,6 +1018,7 @@ func NewQuoteFromXueqiu(symbol, startDate, endDate string, period Period, client
 				//log.Println(result.Data.Item[i][0], ParseDateString(startDate).UnixMilli())
 				continue
 			}
+			fmt.Println(time.UnixMilli(int64(result.Data.Item[i][0])))
 			quote.Date = append(quote.Date, time.UnixMilli(int64(result.Data.Item[i][0])))
 			quote.Volume = append(quote.Volume, result.Data.Item[i][1])
 			quote.Open = append(quote.Open, result.Data.Item[i][2])

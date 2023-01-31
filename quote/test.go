@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	socks5, err := proxy.SOCKS5("tcp", "172.16.10.110:10808", nil, proxy.Direct)
+	socks5, err := proxy.SOCKS5("tcp", "127.0.0.1:7890", nil, proxy.Direct)
 	if err != nil {
 		return
 	}
@@ -27,7 +27,7 @@ func main() {
 			return socks5.Dial(network, addr)
 		},
 	}
-	xiuqiu, err := quote.NewQuoteFromXueqiu("600898.ss", "2022-02-01", "2023-01-31", quote.Daily, nil)
+	xiuqiu, err := quote.NewQuoteFromXueqiu("600898.ss", "2022-02-01", "2023-01-31", quote.Daily, client)
 	if err != nil {
 		return
 	}
