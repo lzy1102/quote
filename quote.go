@@ -2393,13 +2393,28 @@ func getshtable() []CodeTable {
 		return nil
 	}
 	xlsdata := ReadXls(file)
+	symbolIndex := 0
+	listingDateIndex := 0
+	nameIndex := 0
+	for i := 0; i < len(xlsdata[0]); i++ {
+		if xlsdata[0][i] == "A股代码" {
+			symbolIndex = i
+		}
+		if xlsdata[0][i] == "证券简称" {
+			nameIndex = i
+		}
+		if xlsdata[0][i] == "上市日期" {
+			listingDateIndex = i
+		}
+	}
 	for i := 1; i < len(xlsdata); i++ {
 		tmp := filterarr(xlsdata[i])
+		fmt.Println(tmp)
 		if len(tmp) >= 5 {
 			result = append(result, CodeTable{
-				Symbol:      fmt.Sprintf("%v.ss", tmp[0]),
-				Name:        tmp[1],
-				ListingDate: tmp[5],
+				Symbol:      fmt.Sprintf("%v.ss", tmp[symbolIndex]),
+				Name:        tmp[nameIndex],
+				ListingDate: tmp[listingDateIndex],
 			})
 		}
 	}
