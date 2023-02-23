@@ -2409,12 +2409,16 @@ func getshtable() []CodeTable {
 	}
 	for i := 1; i < len(xlsdata); i++ {
 		tmp := filterarr(xlsdata[i])
-		fmt.Println(tmp)
 		if len(tmp) >= 5 {
+			tm2, err := time.Parse("20060102", tmp[listingDateIndex])
+			if err != nil {
+				continue
+			}
+			fmt.Println(tm2.Format("2006-01-02"))
 			result = append(result, CodeTable{
 				Symbol:      fmt.Sprintf("%v.ss", tmp[symbolIndex]),
 				Name:        tmp[nameIndex],
-				ListingDate: tmp[listingDateIndex],
+				ListingDate: tm2.Format("2006-01-02"),
 			})
 		}
 	}
