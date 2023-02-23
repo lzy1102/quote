@@ -2399,7 +2399,7 @@ func getshtable() []CodeTable {
 			result = append(result, CodeTable{
 				Symbol:      fmt.Sprintf("%v.ss", tmp[0]),
 				Name:        tmp[1],
-				ListingDate: tmp[4],
+				ListingDate: tmp[5],
 			})
 		}
 	}
